@@ -1,0 +1,18 @@
+#!/bin/bash
+rm serial.log
+make clean
+make -j$(nproc)
+# shellcheck disable=SC2116
+if [[ $(echo $?) != 0 ]]; then
+    echo "tvldr failed to compile; please check logs"
+    exit 1
+fi
+sudo mount ~/atv-debug/debug_diags.img /mnt/atv_debug
+cp ASD /mnt/atv_debug
+sudo umount /mnt/atv_debug
+rm ~/atv-debug/debug_diags.vdi
+VBoxManage convertfromraw ~/atv-debug/debug_diags.img ~/atv-debug/debug_diags.vdi
+VBoxManage internalcommands sethduuid ~/atv-debug/debug_diags.vdi 292d6526-2f28-44b0-8964-b8ecfe6440e9
+VirtualBoxVM --startvm "atv-bootloader Debug VM" --dbg &
+sleep 2
+socat stdio /tmp/vbox-serial | tee serial.log
