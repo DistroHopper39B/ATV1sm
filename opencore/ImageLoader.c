@@ -12,26 +12,29 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
-/*
-#include "BootManagementInternal.h"
+#include <Uefi.h>
+
+//#include "BootManagementInternal.h"
 
 #include <Protocol/DevicePath.h>
 #include <Protocol/LoadedImage.h>
 #include <Protocol/SimpleFileSystem.h>
 
-#include <Guid/AppleVariable.h>
+//#include <Guid/AppleVariable.h>
 #include <Guid/FileInfo.h>
 #include <Guid/GlobalVariable.h>
-#include <Guid/OcVariable.h>
+//#include <Guid/OcVariable.h>
 
-#include <AppleMacEfi/AppleMacEfiSpec.h>
+//#include <AppleMacEfi/AppleMacEfiSpec.h>
 
 #include <Library/BaseLib.h>
 #include <Library/BaseMemoryLib.h>
-#include <Library/OcDebugLogLib.h>
+//#include <Library/OcDebugLogLib.h>
 #include <Library/DevicePathLib.h>
 #include <Library/MemoryAllocationLib.h>
+
 #include <Library/MemoryAllocationLibEx.h>
+/*
 #include <Library/OcAppleSecureBootLib.h>
 #include <Library/OcBootManagementLib.h>
 #include <Library/OcDebugLogLib.h>
@@ -41,13 +44,16 @@
 #include <Library/OcMiscLib.h>
 #include <Library/OcPeCoffExtLib.h>
 #include <Library/OcStringLib.h>
+ */
 #include <Library/UefiImageLib.h>
+
+
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/PrintLib.h>
-*/
-#include <atvlib.h>
+
+//#include <atvlib.h>
 #include <opencore.h>
 
 #if defined (MDE_CPU_IA32)
@@ -84,14 +90,15 @@ typedef struct {
   UINT32    ImageCaps;
 } OC_IMAGE_LOADER_CAPS_PROTOCOL;
 
+/*
 STATIC EFI_IMAGE_LOAD    mOriginalEfiLoadImage;
 STATIC EFI_IMAGE_START   mOriginalEfiStartImage;
 STATIC EFI_IMAGE_UNLOAD  mOriginalEfiUnloadImage;
 STATIC EFI_EXIT          mOriginalEfiExit;
 STATIC EFI_HANDLE        mCurrentImageHandle;
 
-STATIC OC_IMAGE_LOADER_PATCH      mImageLoaderPatch;
-STATIC OC_IMAGE_LOADER_CONFIGURE  mImageLoaderConfigure;
+//STATIC OC_IMAGE_LOADER_PATCH      mImageLoaderPatch;
+//STATIC OC_IMAGE_LOADER_CONFIGURE  mImageLoaderConfigure;
 STATIC BOOLEAN                    mImageLoaderEnabled;
 
 STATIC BOOLEAN  mProtectUefiServices;
@@ -101,6 +108,9 @@ STATIC EFI_IMAGE_LOAD          mPreservedLoadImage;
 STATIC EFI_IMAGE_START         mPreservedStartImage;
 STATIC EFI_EXIT_BOOT_SERVICES  mPreservedExitBootServices;
 STATIC EFI_EXIT                mPreservedExit;
+*/
+#define ASSERT(e)
+#define DEBUG(e)
 
 STATIC
 EFI_STATUS
@@ -291,14 +301,10 @@ OcImageLoaderLoad (
   // Allocate the image destination memory.
   // FIXME: RT drivers require EfiRuntimeServicesCode.
   //
-  Status = AllocateAlignedPagesEx (
-             AllocateAnyPages,
-             ImageContext.Ctx.Pe.Subsystem == EFI_IMAGE_SUBSYSTEM_EFI_APPLICATION
-      ? EfiLoaderCode : EfiBootServicesCode,
+  DestinationPages = AllocateAlignedPages (
              DestinationPages,
-             DestinationAlignment,
-             &DestinationArea
-             );
+             ImageContext.Ctx.Pe.Subsystem == EFI_IMAGE_SUBSYSTEM_EFI_APPLICATION
+      ? EfiLoaderCode : EfiBootServicesCode);
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_INFO, "OCB: PeCoff could allocate image buffer\n"));
@@ -488,7 +494,7 @@ InternalDirectExit (
   //
   // If the image has been started, verify this image can exit.
   //
-  if (ImageHandle != mCurrentImageHandle) {
+  if (ImageHandle != gImageHandle) {
     DEBUG ((DEBUG_LOAD|DEBUG_ERROR, "OCB: Image is not exitable image\n"));
     gBS->RestoreTPL (OldTpl);
     return EFI_INVALID_PARAMETER;
@@ -553,8 +559,8 @@ InternalDirectStartImage (
   //
   // Push the current image.
   //
-  LastImage           = mCurrentImageHandle;
-  mCurrentImageHandle = ImageHandle;
+  LastImage           = gImageHandle;
+  gImageHandle        = ImageHandle;
 
   //
   // Set long jump for Exit() support
@@ -568,7 +574,7 @@ InternalDirectStartImage (
     //
     // Pop the current start image context
     //
-    mCurrentImageHandle = LastImage;
+    gImageHandle = LastImage;
     return EFI_OUT_OF_RESOURCES;
   }
 
@@ -595,7 +601,7 @@ InternalDirectStartImage (
     //
     // If the image returns, exit it through Exit()
     //
-    InternalDirectExit (OcLoadedImage, ImageHandle, OcLoadedImage->Status, 0, NULL);
+    gBS->Exit (OcLoadedImage, ImageHandle, OcLoadedImage->Status, 0, NULL);
   }
 
   FreePool (OcLoadedImage->JumpBuffer);
@@ -603,7 +609,7 @@ InternalDirectStartImage (
   //
   // Pop the current image.
   //
-  mCurrentImageHandle = LastImage;
+  gImageHandle = LastImage;
 
   //
   // NOTE: EFI 1.10 is not supported, refer to
@@ -657,68 +663,7 @@ DetectCapabilities (
   IN  UINT32  SourceSize
   )
 {
-  BOOLEAN  Exists;
-  UINT32   Result;
-
-  //
-  // Find Mac OS X version pattern.
-  // This pattern started to appear with 10.7.
-  //
-  Result = 0;
-  Exists = FindPattern (
-             (CONST UINT8 *)"Mac OS X 10.",
-             NULL,
-             L_STR_LEN ("Mac OS X 10."),
-             SourceBuffer,
-             SourceSize - sizeof (UINT32),
-             &Result
-             );
-
- #ifdef MDE_CPU_IA32
-  //
-  // For IA32 mode the only question is whether we support K32_64.
-  // This starts with 10.7, and in theory is valid for some early
-  // developer preview 10.8 images, so simply decide on Mac OS X
-  // version pattern presence.
-  //
-  if (Exists) {
-    return OC_KERN_CAPABILITY_K32_U64;
-  }
-
-  return OC_KERN_CAPABILITY_K32_U32 | OC_KERN_CAPABILITY_K32_U64;
- #else
-  //
-  // For X64 mode, when the pattern is found, this can be 10.7 or 10.8+.
-  // 10.7 supports K32_64 and K64, while newer versions have only K64.
-  //
-  if (Exists) {
-    if (((UINT8 *)SourceBuffer)[Result + L_STR_LEN ("Mac OS X 10.")] == '7') {
-      return OC_KERN_CAPABILITY_K32_U64 | OC_KERN_CAPABILITY_K64_U64;
-    }
-
-    return OC_KERN_CAPABILITY_K64_U64;
-  }
-
-  //
-  // The pattern is not found. This can be 10.6 or 10.4~10.5.
-  // 10.6 supports K32 and K64, while older versions have only K32.
-  // Detect 10.6 by x86_64 pattern presence.
-  //
-  Result = SourceSize / 2;
-  Exists = FindPattern (
-             (CONST UINT8 *)"x86_64",
-             NULL,
-             L_STR_SIZE ("x86_64"),
-             SourceBuffer,
-             SourceSize - sizeof (UINT32),
-             &Result
-             );
-  if (Exists) {
-    return OC_KERN_CAPABILITY_K32_U32 | OC_KERN_CAPABILITY_K32_U64 | OC_KERN_CAPABILITY_K64_U64;
-  }
-
-  return OC_KERN_CAPABILITY_K32_U32 | OC_KERN_CAPABILITY_K32_U64;
- #endif
+  return BIT0 | BIT1;
 }
 
 STATIC
@@ -733,18 +678,16 @@ InternalEfiLoadImage (
   OUT EFI_HANDLE                *ImageHandle
   )
 {
-  EFI_STATUS                     SecureBootStatus;
-  EFI_STATUS                     FilterStatus;
   EFI_STATUS                     Status;
-  VOID                           *AllocatedBuffer;
-  OC_IMAGE_LOADER_CAPS_PROTOCOL  *OcImageLoaderCaps;
-  UINT32                         RealSize;
-  UINT32                         SignedFileSize;
-  BOOLEAN                        IsFatSlice;
-  CHAR16                         *FilePath;
-  BOOLEAN                        FixupRequired;
-  BOOLEAN                        AppleBootPath;
 
+  Status = OcImageLoaderLoad(BootPolicy,
+                             ParentImageHandle,
+                             DevicePath,
+                             SourceBuffer,
+                             SourceSize,
+                             ImageHandle);
+
+#if 0
   if ((ParentImageHandle == NULL) || (ImageHandle == NULL)) {
     return EFI_INVALID_PARAMETER;
   }
@@ -778,6 +721,7 @@ InternalEfiLoadImage (
       AllocatedBuffer = SourceBuffer;
     }
   }
+  /*
 
   if ((DevicePath != NULL) && (SourceBuffer != NULL) && mImageLoaderEnabled) {
     SecureBootStatus = OcAppleSecureBootVerify (
@@ -788,7 +732,6 @@ InternalEfiLoadImage (
   } else {
     SecureBootStatus = EFI_UNSUPPORTED;
   }
-
   //
   // A security violation means we should just die.
   //
@@ -799,10 +742,11 @@ InternalEfiLoadImage (
       ));
     return EFI_SECURITY_VIOLATION;
   }
+  */
 
   if (SourceBuffer != NULL) {
     RealSize = (UINT32)SourceSize;
- #ifdef MDE_CPU_IA32
+ #if 1
     FilterStatus = FatFilterArchitecture32 ((UINT8 **)&SourceBuffer, &RealSize);
  #else
     FilterStatus = FatFilterArchitecture64 ((UINT8 **)&SourceBuffer, &RealSize);
@@ -828,6 +772,7 @@ InternalEfiLoadImage (
     // by using mImageLoaderConfigure != NULL as a proxy for loaded kernel
     // support) because we need to fix up other Apple files such as apfs.efi.
     //
+    /*
     if (mFixupAppleEfiImages) {
       if (SecureBootStatus == EFI_SUCCESS) {
         DEBUG ((DEBUG_INFO, "OCB: Secure boot, fixup efi ignored\n"));
@@ -890,7 +835,7 @@ InternalEfiLoadImage (
         }
       }
     }
-
+  */
     DEBUG ((
       DEBUG_INFO,
       "OCB: Arch filtering %p(%u)->%p(%u) caps %u - %r\n",
@@ -921,6 +866,9 @@ InternalEfiLoadImage (
   //
   // Load the image ourselves in secure boot mode.
   //
+
+  SecureBootStatus = EFI_SUCCESS;
+
   if (SecureBootStatus == EFI_SUCCESS) {
     if (SourceBuffer != NULL) {
       Status = OcImageLoaderLoad (
@@ -946,7 +894,7 @@ InternalEfiLoadImage (
       Status = EFI_UNSUPPORTED;
     }
   } else {
-    PreserveGrubShimHooks ();
+    //PreserveGrubShimHooks ();
     Status = mOriginalEfiLoadImage (
                BootPolicy,
                ParentImageHandle,
@@ -955,7 +903,7 @@ InternalEfiLoadImage (
                SourceSize,
                ImageHandle
                );
-    RestoreGrubShimHooks ("LoadImage");
+    //RestoreGrubShimHooks ("LoadImage");
 
     if (!EFI_ERROR (Status) && (OcImageLoaderCaps != NULL)) {
       Status = gBS->InstallMultipleProtocolInterfaces (
@@ -988,6 +936,7 @@ InternalEfiLoadImage (
   if (!EFI_ERROR (Status) && (SourceBuffer != NULL) && (DevicePath != NULL)) {
     InternalUpdateLoadedImage (*ImageHandle, DevicePath);
   }
+#endif
 
   return Status;
 }
@@ -1005,16 +954,6 @@ InternalEfiStartImage (
   OC_LOADED_IMAGE_PROTOCOL       *OcLoadedImage;
   EFI_LOADED_IMAGE_PROTOCOL      *LoadedImage;
   OC_IMAGE_LOADER_CAPS_PROTOCOL  *OcImageLoaderCaps;
-  UINT32                         Caps;
-
-  //
-  // Use target default except where we detected and saved other caps on load.
-  //
- #ifdef MDE_CPU_IA32
-  Caps = OC_KERN_CAPABILITY_K32_U32 | OC_KERN_CAPABILITY_K32_U64;
- #else
-  Caps = OC_KERN_CAPABILITY_K64_U64;
- #endif
 
   //
   // If we loaded the image, invoke the entry point manually.
@@ -1024,24 +963,20 @@ InternalEfiStartImage (
                   &mOcLoadedImageProtocolGuid,
                   (VOID **)&OcLoadedImage
                   );
-  if (!EFI_ERROR (Status)) {
-    //
-    // Call configure update for our images.
-    //
-    if (mImageLoaderConfigure != NULL) {
-      mImageLoaderConfigure (
-        &OcLoadedImage->LoadedImage,
-        Caps
-        );
-    }
 
-    return InternalDirectStartImage (
+  if (Status != EFI_SUCCESS) {
+    return Status;
+  }
+
+  return InternalDirectStartImage (
              OcLoadedImage,
              ImageHandle,
              ExitDataSize,
              ExitData
              );
-  }
+}
+
+  /*
 
   //
   // Call configure update for generic images too.
@@ -1069,13 +1004,12 @@ InternalEfiStartImage (
     }
   }
 
-  PreserveGrubShimHooks ();
-  Status = mOriginalEfiStartImage (ImageHandle, ExitDataSize, ExitData);
-  RestoreGrubShimHooks ("StartImage");
+   */
+  //PreserveGrubShimHooks ();
+  //Status = mOriginalEfiStartImage (ImageHandle, ExitDataSize, ExitData);
+  //RestoreGrubShimHooks ("StartImage");
 
-  return Status;
-}
-
+#if 0
 STATIC
 EFI_STATUS
 EFIAPI
@@ -1161,9 +1095,9 @@ InternalEfiExit (
              );
   }
 
-  PreserveGrubShimHooks ();
+  //PreserveGrubShimHooks ();
   Status = mOriginalEfiExit (ImageHandle, ExitStatus, ExitDataSize, ExitData);
-  RestoreGrubShimHooks ("Exit");
+  //RestoreGrubShimHooks ("Exit");
 
   return Status;
 }
@@ -1214,3 +1148,5 @@ OcImageLoaderRegisterConfigure (
 {
   mImageLoaderConfigure = Configure;
 }
+
+#endif

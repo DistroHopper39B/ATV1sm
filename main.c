@@ -7,7 +7,7 @@
 // Diagnostics core function
 unsigned int gCoreFunction;
 
-const CHAR16 *EfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
+CHAR16 *EfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
 
 EFI_IMAGE_LOAD  OriginalLoadImage;
 EFI_IMAGE_START OriginalStartImage;

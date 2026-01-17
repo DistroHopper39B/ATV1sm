@@ -1,0 +1,9 @@
+#pragma once
+
+typedef UINT8 UEFI_IMAGE_SOURCE;
+
+
+#define UEFI_IMAGE_SOURCE_NON_FV  0U
+#define UEFI_IMAGE_SOURCE_FV      1U
+#define UEFI_IMAGE_SOURCE_ALL     2U
+#define UEFI_IMAGE_SOURCE_MAX     3U

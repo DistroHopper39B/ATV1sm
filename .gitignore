@@ -1,0 +1,4 @@
+rebuild
+ASD
+**/*.o
+*.o

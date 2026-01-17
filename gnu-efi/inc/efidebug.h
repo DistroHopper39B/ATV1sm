@@ -62,13 +62,17 @@ extern UINTN     EFIDebug;
 #define D_ERROR_ATA	  0x00040000		  		// ATA error messages 
 #define D_ERROR       0x80000000          // Error
 
+#define DEBUG_INFO D_INFO
+#define DEBUG_ERR D_ERR
+#define DEBUG_WARN D_WARN
+
 #define D_RESERVED    0x7fffC880          // Bits not reserved above
 
 //
 // Current Debug level of the system, value of EFIDebug
 //
-//#define EFI_DBUG_MASK   (D_ERROR | D_WARN | D_LOAD | D_BLKIO | D_INIT)
-#define EFI_DBUG_MASK   (D_ERROR)
+#define EFI_DBUG_MASK   (D_ERROR | D_WARN | D_LOAD | D_BLKIO | D_INIT)
+//#define EFI_DBUG_MASK   (D_ERROR)
 
 //
 //

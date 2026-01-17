@@ -498,7 +498,7 @@ AllocateZeroPool (
 VOID *
 AllocateCopyPool (
     IN UINTN       AllocationSize,
-    IN CONST VOID  *Buffer
+    IN VOID  *Buffer
     );
 
 VOID *
