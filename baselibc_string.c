@@ -126,7 +126,7 @@ int memcmp(const void *s1, const void *s2, size_t n)
 
     return d;
 }
-
+/*
 void *memcpy(void *dst, const void *src, size_t n)
 {
     const char *p = src;
@@ -149,6 +149,7 @@ void *memcpy(void *dst, const void *src, size_t n)
 
     return dst;
 }
+ */
 
 void *memmove(void *dst, const void *src, size_t n)
 {
@@ -180,7 +181,7 @@ void *memmove(void *dst, const void *src, size_t n)
 
     return dst;
 }
-
+/*
 void *memset(void *dst, int c, size_t n)
 {
     char *q = dst;
@@ -204,6 +205,7 @@ void *memset(void *dst, int c, size_t n)
 
     return dst;
 }
+ */
 
 void *memmem(const void *haystack, size_t n, const void *needle, size_t m)
 {

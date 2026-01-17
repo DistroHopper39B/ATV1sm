@@ -6,23 +6,8 @@
 
 #pragma once
 
-typedef char                int8_t;
-typedef unsigned char       uint8_t;
-typedef short               int16_t;
-typedef unsigned short      uint16_t;
-typedef int                 int32_t;
-typedef unsigned int        uint32_t;
-typedef __attribute__((aligned(8))) long long           int64_t;
-typedef __attribute__((aligned(8))) unsigned long long  uint64_t;
-typedef _Bool               boolean_t;
-typedef __SIZE_TYPE__       size_t;
-typedef __UINTPTR_TYPE__    uintptr_t;
-
-typedef unsigned short      wchar_t;
-typedef uint32_t            uintn_t;
-
-#define true                1
-#define false               0
-#define NULL                (void *) 0
+#define true 1
+#define false 0
 
 #define noreturn            _Noreturn
+typedef _Bool               boolean_t;

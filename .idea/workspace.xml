@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="efi_bypass" targetName="all" />
+      <config projectName="efi_bypass" targetName="ASD" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c95bdbaa-7a4e-433b-8704-660ec478853d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/ChangeLog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/Make.defaults" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/Make.rules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/README.efilib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/README.elilo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/README.git" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/README.gnuefi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/AllocPages.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/FreePages.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/bltgrid.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/ctors_dtors_priority_test.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/ctors_fns.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/ctors_test.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/debughook.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/drv0.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/drv0.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/drv0_use.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/exit.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/lfbgrid.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/modelist.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/printenv.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/route80h.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/setdbg.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/setjmp.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t2.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t3.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t4.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t5.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t6.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t7.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/t8.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/tcc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/tpause.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/trivial.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/apps/unsetdbg.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-aarch64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-arm.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-ia32.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-ia64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-loongarch64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-mips64el.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-riscv64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/crt0-efi-x86_64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_aarch64_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_arm_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_ia32_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_ia32_fbsd_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_ia64_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_loongarch64_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_mips64el_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_riscv64_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_x86_64_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/elf_x86_64_fbsd_efi.lds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/gnu-efi.pc.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_aarch64.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_arm.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_ia32.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_ia64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_loongarch64.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_mips64el.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_riscv64.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/gnuefi/reloc_x86_64.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/aarch64/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/aarch64/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/aarch64/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/arm/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/arm/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/arm/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efi_nii.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efi_pxe.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efiapi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/eficompiler.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/eficon.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/eficonex.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efidebug.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efidef.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efidevp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efierr.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efifs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efigpt.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efiip.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efilib.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efilink.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efinet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efipart.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efipciio.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efipoint.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efiprot.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efipxebc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efirtlib.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efiser.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efisetjmp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efishell.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efishellintf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efistdarg.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efitcp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efiudp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/efiui.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia32/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia32/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia32/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia32/pe.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia64/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia64/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia64/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia64/pe.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/ia64/salproc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/inc.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/lib.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/libsmbios.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/loongarch64/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/loongarch64/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/loongarch64/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/make.inf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/makefile.hdr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/mips64el/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/mips64el/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/mips64el/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/pci22.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/adapterdebug.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/eficonsplit.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/efidbg.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/efivar.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/ia64/eficontext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/intload.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/legacyboot.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/make.inf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/makefile.hdr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/piflash64.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/protocol/vgaclass.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/riscv64/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/riscv64/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/riscv64/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/romload.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/x86_64/efibind.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/x86_64/efilibplat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/x86_64/efisetjmp_arch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/inc/x86_64/pe.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/aarch64/efi_stub.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/aarch64/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/aarch64/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/aarch64/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/div.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/edk2asm.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/efi_stub.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/ldivmod.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/llsl.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/llsr.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/mullu.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/arm/uldiv.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/boxdraw.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/cmdline.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/console.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/crc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ctors.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/data.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/debug.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/dpath.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/entry.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/error.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/event.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/exit.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/guid.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/hand.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/hw.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia32/efi_stub.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia32/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia32/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia32/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia64/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia64/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia64/palproc.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia64/palproc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia64/salpal.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/ia64/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/init.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/lock.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/loongarch64/efi_stub.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/loongarch64/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/loongarch64/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/loongarch64/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/mips64el/efi_stub.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/mips64el/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/mips64el/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/mips64el/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/misc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/pause.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/print.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/riscv64/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/riscv64/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/riscv64/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/runtime/efirtlib.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/runtime/rtdata.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/runtime/rtlock.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/runtime/rtstr.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/runtime/vm.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/smbios.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/sread.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/str.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/x86_64/callwrap.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/x86_64/efi_stub.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/x86_64/initplat.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/x86_64/math.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnu-efi/lib/x86_64/setjmp.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/opencore.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opencore/ImageLoader.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opencore/fileload.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD" beforeDir="false" afterPath="$PROJECT_DIR$/ASD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/DevicePath.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/DevicePathFromText.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/DevicePathFromText.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/DevicePathUtilities.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/DevicePathUtilities.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/UefiDevicePathLib.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/UefiDevicePathLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevicePath/UefiDevicePathLib.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DxeImage.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baselibc_string.c" beforeDir="false" afterPath="$PROJECT_DIR$/baselibc_string.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baselibc_string.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cons.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/atvlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/atvlib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/AArch64/AArch64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/AArch64/AArch64Mmu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/AArch64/AsmMacroLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/AArch64/ProcessorBind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/AppleScreenInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/inc/AppleScreen.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Base.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/ConfidentialComputingGuestAttr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ebc/ProcessorBind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Acpi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Apriori.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/AprioriFileName.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Btt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/CapsuleReport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/ConformanceProfiles.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Cper.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/DebugImageInfoTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/DeviceAuthentication.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/DxeServices.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/EventGroup.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/EventLegacyBios.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Fdt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FdtHob.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FileInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FileSystemInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FileSystemVolumeLabelInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FirmwareContentsSigned.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FirmwareFileSystem2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FirmwareFileSystem3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/FmpCapsule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/GlobalVariable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Gpt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/GraphicsInfoHob.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/HardwareErrorVariable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/HiiFormMapMethodGuid.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/HiiKeyBoardLayout.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/HiiPlatformSetupFormset.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/HobList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/ImageAuthentication.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/JsonCapsule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/LinuxEfiInitrdMedia.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/MdePkgTokenSpace.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/MemoryAllocationHob.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/MemoryAttributesTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/MemoryOverwriteControl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Mps.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/PcAnsi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/Rng.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/RtPropertiesTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/SmBios.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/SmramMemoryReserve.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/StatusCodeDataTypeId.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/SystemResourceTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/VectorHandoffTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Guid/WinCertificate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ia32/Nasm.inc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ia32/ProcessorBind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi10.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi20.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi30.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi40.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi50.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi51.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi60.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi61.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi62.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi63.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi64.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi65.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Acpi66.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/AcpiAml.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/AlertStandardFormatTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmAgdiTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmErrorSourceTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmFfaBootInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmFfaMemMgmt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmFfaPartInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmFfaSvc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmPerformanceMonitoringUnitTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ArmStdSmc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Atapi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Bluetooth.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Bmp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Cxl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Cxl11.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Cxl20.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Cxl30.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Cxl31.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/DebugPort2Table.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/DebugPortTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Dhcp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/DmaRemappingReportingTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ElTorito.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Emmc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/HighPrecisionEventTimerTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Hsti.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Http11.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IScsiBootFirmwareTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IoRemappingTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Ipmi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiFruInformationStorage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiKcs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnApp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnBridge.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnChassis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnFirmware.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnGroupExtension.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnOem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnSensorEvent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnStorage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiNetFnTransport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiSerial.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/IpmiSsif.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/LegacyBiosMpTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/LowPowerIdleTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Mbr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Mctp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/MemoryMappedConfigurationSpaceAccessTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/MemoryOverwriteRequestControlLock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Mpam.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Nvme.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Pci.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Pci22.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Pci23.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Pci30.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciCodeId.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress21.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress30.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress31.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress40.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress50.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress60.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PciExpress70.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PeImage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Pldm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/PldmSmbiosTransfer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/RiscVIoMappingTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Scsi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Sd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SdramSpd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SdramSpdDdr3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SdramSpdDdr4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SdramSpdLpDdr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SerialPortConsoleRedirectionTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/ServiceProcessorManagementInterfaceTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SmBios.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SmBus.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Spdm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/SpiNorFlashJedecSfdp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/TcgPhysicalPresence.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/TcgStorageCore.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/TcgStorageOpal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/TcpaAcpi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Tdx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Tls1.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Tpm12.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Tpm20.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Tpm2Acpi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/TpmPtp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/TpmTis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Udf.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/UefiTcgPlatform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Ufs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/UfsHci.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/Usb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/WatchdogActionTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/WatchdogResourceTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/WindowsSmmSecurityMitigationTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/IndustryStandard/WindowsUxCapsule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ArmFfaLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ArmFfaMemMgmtLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ArmLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ArmSmcLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ArmSvcLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ArmTrngLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/BaseLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/BaseMemoryLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/BaseRiscVSbiLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/CacheMaintenanceLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/CcProbeLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/CpuLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/DebugLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/DebugPrintErrorLevelLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/DevicePathLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/DxeCoreEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/DxeServicesLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/DxeServicesTableLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ExtractGuidedSectionLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/FdtLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/FileHandleLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/FvLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/HobLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/HstiLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/IoLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/JedecJep106Lib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/MemoryAllocationLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/MipiSysTLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/MmServicesTableLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/MmUnblockMemoryLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/OrderedCollectionLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PcdLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PciCf8Lib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PciExpressLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PciLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PciSegmentInfoLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PciSegmentLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeCoffExtraActionLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeCoffGetEntryPointLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeCoffLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeiCoreEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeiServicesLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeiServicesTablePointerLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PeimEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PerformanceLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PostCodeLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/PrintLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/RegisterFilterLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ReportStatusCodeLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/ResourcePublicationLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/RngLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/S3BootScriptLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/S3IoLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/S3PciLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/S3PciSegmentLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/S3SmbusLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/S3StallLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SafeIntLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SerialPortLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmbusLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmiHandlerProfileLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmmCpuRendezvousLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmmIoLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmmLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmmMemLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmmPeriodicSmiLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SmmServicesTableLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/StackCheckFailureHookLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/StackCheckLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/StandaloneMmCoreEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/StandaloneMmDriverEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/SynchronizationLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/TdxLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/TimerLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/TraceHubDebugSysTLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiApplicationEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiBootServicesTableLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiDecompressLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiDriverEntryPoint.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiRuntimeLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiRuntimeServicesTableLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiScsiLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UefiUsbLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Library/UnitTestLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/LoongArch64/ProcessorBind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiBootMode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiDependency.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiDxeCis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiFirmwareFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiFirmwareVolume.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiHob.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiI2c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiMmCis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiMultiPhase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiPeiCis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiS3BootScript.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiSmmCis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Pi/PiStatusCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/PiDxe.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/PiMm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/PiPei.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/PiSmm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/BlockIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/BlockIo2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/BootInRecoveryMode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Capsule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/CpuIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Decompress.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/DelayedDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/DeviceRecoveryModule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/DxeIpl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/EndOfPeiPhase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/FirmwareVolume.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/FirmwareVolumeInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/FirmwareVolumeInfo2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Graphics.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/GuidedSectionExtraction.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/I2cMaster.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/IsaHc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/LoadFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/LoadImage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MasterBootMode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MemoryDiscovered.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MmAccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MmCommunication.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MmCommunication3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MmConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MmControl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MpServices.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/MpServices2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Pcd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/PcdInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/PciCfg2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/PeiCoreFvLocation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/PiPcd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/PiPcdInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/ReadOnlyVariable2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/RecoveryModule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/ReportStatusCodeHandler.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Reset.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Reset2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Rng.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/S3Resume2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/SecHobData.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/SecPlatformInformation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/SecPlatformInformation2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Security2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Smbus2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/Stall.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/StatusCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/SuperIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/TemporaryRamDone.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/TemporaryRamSupport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Ppi/VectorHandoffInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/AbsolutePointer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/AcpiSystemDescriptionTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/AcpiTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/AdapterInformation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Arp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/AtaPassThru.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/AuthenticationInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Bds.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Bis.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BlockIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BlockIo2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BlockIoCrypto.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BluetoothAttribute.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BluetoothConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BluetoothHc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BluetoothIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BluetoothLeConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BootManagerPolicy.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/BusSpecificDriverOverride.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Capsule.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/CcMeasurement.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ComponentName.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ComponentName2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Cpu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/CpuIo2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DebugPort.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DebugSupport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Decompress.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DeferredImageLoad.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DevicePath.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DevicePathFromText.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DevicePathToText.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DevicePathUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Dhcp4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Dhcp6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DiskInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DiskIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DiskIo2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Dns4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Dns6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverBinding.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverConfiguration2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverDiagnostics.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverDiagnostics2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverFamilyOverride.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverHealth.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DriverSupportedEfiVersion.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DxeMmReadyToLock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/DxeSmmReadyToLock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Eap.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EapConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EapManagement.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EapManagement2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Ebc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EdidActive.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EdidDiscovered.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EdidOverride.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/EraseBlock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/FirmwareManagement.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/FirmwareVolume2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/FirmwareVolumeBlock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/FormBrowser2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Ftp4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/GraphicsOutput.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/GuidedSectionExtraction.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Hash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Hash2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiConfigAccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiConfigKeyword.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiConfigRouting.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiDatabase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiFont.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiImage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiImageDecoder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiImageEx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiPackageList.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiPopup.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HiiString.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Http.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HttpBootCallback.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/HttpUtilities.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/I2cBusConfigurationManagement.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/I2cEnumerate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/I2cHost.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/I2cIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/I2cMaster.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/IScsiInitiatorName.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/IdeControllerInit.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/IncompatiblePciDeviceSupport.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Ip4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Ip4Config2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Ip6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Ip6Config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/IpSec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/IpSecConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/IsaHc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Kms.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LegacyRegion2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LegacySpiController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LegacySpiFlash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LegacySpiSmmController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LegacySpiSmmFlash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LoadFile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LoadFile2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LoadPe32Image.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/LoadedImage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ManagedNetwork.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MemoryAccept.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MemoryAttribute.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Metronome.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmAccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmCommunication.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmCommunication2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmCommunication3.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmControl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmCpu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmCpuIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmEndOfDxe.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmGpiDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmIoTrapDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmMp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmPciRootBridgeIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmPeriodicTimerDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmPowerButtonDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmReadyToLock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmReportStatusCodeHandler.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmStandbyButtonDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmStatusCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmSwDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmSxDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MmUsbDispatch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MonotonicCounter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/MpService.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Mtftp4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Mtftp6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/NetworkInterfaceIdentifier.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/NvdimmLabel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/NvmExpressPassthru.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PartitionInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Pcd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PcdInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciEnumerationComplete.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciHostBridgeResourceAllocation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciHotPlugInit.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciHotPlugRequest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciOverride.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciPlatform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PciRootBridgeIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PeCoffImageEmulator.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PiPcd.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PiPcdInfo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Pkcs7Verify.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PlatformDriverOverride.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PlatformToDriverConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PxeBaseCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/PxeBaseCodeCallBack.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/RamDisk.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/RealTimeClock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/RedfishDiscover.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/RegularExpressionProtocol.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ReportStatusCodeHandler.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Reset.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ResetNotification.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Rest.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/RestEx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/RestJsonStructure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Rng.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Runtime.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/S3SaveState.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/S3SmmSaveState.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ScsiIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ScsiPassThruExt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SdMmcPassThru.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Security.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Security2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SecurityPolicy.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SerialIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ServiceBinding.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Shell.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ShellDynamicCommand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/ShellParameters.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SimpleFileSystem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SimpleNetwork.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SimplePointer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SimpleTextIn.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SimpleTextInEx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SimpleTextOut.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmartCardEdge.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmartCardReader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Smbios.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmbusHc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmAccess2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmBase2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmCommunication.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmControl2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmCpu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmCpuIo2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmEndOfDxe.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmGpiDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmIoTrapDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmPciRootBridgeIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmPeriodicTimerDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmPowerButtonDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmReadyToLock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmReportStatusCodeHandler.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmStandbyButtonDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmStatusCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmSwDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmSxDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SmmUsbDispatch2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiHc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiNorFlash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiSmmConfiguration.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiSmmHc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SpiSmmNorFlash.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/StatusCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/StorageSecurityCommand.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SuperIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/SuperIoControl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Supplicant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/TapeIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Tcg2Protocol.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/TcgService.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Tcp4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Tcp6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Timer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Timestamp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Tls.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/TlsConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/TrEEProtocol.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Udp4.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Udp6.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UfsDeviceConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UnicodeCollation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Usb2HostController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UsbFunctionIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UsbIo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UserCredential.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UserCredential2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/UserManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/Variable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/VariableWrite.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/VlanConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/WatchdogTimer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/WiFi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Protocol/WiFi2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/ArchitecturalMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/Cpuid.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/Ghcb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/SevSnpMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/SmramSaveStateMap.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/Svsm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Amd/SvsmMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/ArchitecturalMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Cpuid.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/LocalApic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Microcode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/AtomMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/BroadwellMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/Core2Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/CoreMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/GoldmontMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/GoldmontPlusMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/HaswellEMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/HaswellMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/IvyBridgeMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/NehalemMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/P6Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/Pentium4Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/PentiumMMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/PentiumMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/SandyBridgeMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/SilvermontMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/SkylakeMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/Xeon5600Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/XeonDMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/XeonE7Msr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/Msr/XeonPhiMsr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/SmramSaveStateMap.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/StmApi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/StmResourceDescriptor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/Intel/StmStatusCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/LoongArch64/Cpucfg.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/LoongArch64/Csr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/RiscV64/RiscVEncoding.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Register/RiscV64/RiscVImpl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/RiscV64/ProcessorBind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/RiscV64/RiscVasm.inc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiAcpiDataTable.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiBaseType.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiGpt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiInternalFormRepresentation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiMultiPhase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiPxe.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/Uefi/UefiSpec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/X64/Nasm.inc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/efi/X64/ProcessorBind.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinyprintf.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uefiutils.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uefiutils.o" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="efi_bypass" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="efi_bypass" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="2.5" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="38MsuqEqz7J07You2EHBXXUWPGu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/distrohopper39b/appletv-windows/efi_bypass/opencore",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/opencore" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Native Application.all">
+    <configuration name="ASD" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="efi_bypass" TARGET_NAME="ASD" CONFIG_NAME="ASD" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="efi_bypass" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Native Application.all" />
+      <item itemvalue="Native Application.ASD" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c95bdbaa-7a4e-433b-8704-660ec478853d" name="Changes" comment="" />
+      <created>1768621000144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1768621000144</updated>
+      <workItem from="1768621001421" duration="16984000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
