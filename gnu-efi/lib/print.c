@@ -214,7 +214,7 @@ Returns:
 
 
     if (!(EFIDebug & mask)) {
-        return 0;
+        //return 0;
     }
 
     va_start (args, fmt);

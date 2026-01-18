@@ -16,6 +16,12 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
                   IN UINTN              SourceSize,
                   OUT EFI_HANDLE        *ImageHandle);
 
+EFI_STATUS
+EFIAPI
+UnsignedStartImage(IN EFI_HANDLE        ImageHandle,
+                   OUT UINTN            *ExitDataSize,
+                   OUT CHAR16           **ExitData);
+
 CHAR16 *EfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
 
 EFI_IMAGE_LOAD  OriginalLoadImage;
@@ -34,6 +40,7 @@ EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
     OriginalStartImage  = BootServices->StartImage;
 
     BootServices->LoadImage = UnsignedLoadImage;
+    BootServices->StartImage = UnsignedStartImage;
 
     return Status;
 }

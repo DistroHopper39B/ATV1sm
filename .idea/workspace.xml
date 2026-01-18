@@ -19,23 +19,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95bdbaa-7a4e-433b-8704-660ec478853d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/memory.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pecoff.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runtime_override.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASD" beforeDir="false" afterPath="$PROJECT_DIR$/ASD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cons.o" beforeDir="false" afterPath="$PROJECT_DIR$/cons.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gnu-efi/inc/efidef.h" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/inc/efidef.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gnu-efi/inc/ia32/efibind.h" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/inc/ia32/efibind.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/atvlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/atvlib.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gnu-efi/lib/debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/lib/debug.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gnu-efi/lib/print.c" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/lib/print.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/udk/Include/IndustryStandard/UeImage.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/udk/Include/Library/UeImageLib.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/udk/Include/Library/UefiImageLib.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/udk/Include/Library/UefiLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pecoff.c" beforeDir="false" afterPath="$PROJECT_DIR$/pecoff.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime_override.c" beforeDir="false" afterPath="$PROJECT_DIR$/runtime_override.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,11 +144,22 @@
       <updated>1768621000144</updated>
       <workItem from="1768621001421" duration="17523000" />
       <workItem from="1768675226524" duration="2223000" />
-      <workItem from="1768677456341" duration="22233000" />
+      <workItem from="1768677456341" duration="25213000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/gnu-efi/inc/efidebug.h</url>
+          <line>21</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1381,6 +1381,16 @@ PeCoffRelocateImage (
 }
 
 UINT32
+PeCoffGetSectionAlignment (
+        IN OUT PE_COFF_LOADER_IMAGE_CONTEXT  *Context
+)
+{
+    ASSERT (Context != NULL);
+
+    return Context->SectionAlignment;
+}
+
+UINT32
 PeCoffGetAddressOfEntryPoint (
         IN CONST PE_COFF_LOADER_IMAGE_CONTEXT  *Context
 )
@@ -1538,6 +1548,13 @@ UefiImageLoaderGetImageEntryPoint (
     return ImageAddress + EntryPointAddress;
 }
 
+UINT32
+UefiImageGetSegmentAlignment (
+        IN OUT UEFI_IMAGE_LOADER_IMAGE_CONTEXT  *Context
+)
+{
+    return PeCoffGetSectionAlignment ((PE_COFF_LOADER_IMAGE_CONTEXT *) Context);
+}
 
 #define FUNCTION_ENTRY_POINT(FunctionPointer)  (VOID *)(UINTN)(FunctionPointer)
 
