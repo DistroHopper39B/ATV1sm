@@ -1615,3 +1615,21 @@ UefiImageRelocateImage (
 
     return Status;
 }
+
+UINT16
+PeCoffGetSubsystem (
+        IN OUT PE_COFF_LOADER_IMAGE_CONTEXT  *Context
+)
+{
+    ASSERT (Context != NULL);
+
+    return Context->Subsystem;
+}
+
+UINT16
+UefiImageGetSubsystem (
+        IN OUT UEFI_IMAGE_LOADER_IMAGE_CONTEXT  *Context
+)
+{
+    return PeCoffGetSubsystem((PE_COFF_LOADER_IMAGE_CONTEXT *) Context);
+}

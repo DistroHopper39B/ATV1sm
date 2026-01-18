@@ -412,6 +412,45 @@ CloseLastFile:
 ///
 #define EFI_LOADED_IMAGE_INFORMATION_REVISION  EFI_LOADED_IMAGE_PROTOCOL_REVISION
 
+STATIC
+EFI_STATUS
+InternalUpdateLoadedImage (
+        IN EFI_HANDLE                ImageHandle,
+        IN EFI_DEVICE_PATH_PROTOCOL  *DevicePath
+)
+{
+    EFI_STATUS                 Status;
+    EFI_HANDLE                 DeviceHandle;
+    EFI_LOADED_IMAGE_PROTOCOL  *LoadedImage;
+    EFI_DEVICE_PATH_PROTOCOL   *RemainingDevicePath;
+
+    Status = gBS->HandleProtocol (
+            ImageHandle,
+            &gEfiLoadedImageProtocolGuid,
+            (VOID **)&LoadedImage
+    );
+    if (EFI_ERROR (Status)) {
+        return Status;
+    }
+
+    RemainingDevicePath = DevicePath;
+    Status              = gBS->LocateDevicePath (&gEfiSimpleFileSystemProtocolGuid, &RemainingDevicePath, &DeviceHandle);
+    if (EFI_ERROR (Status)) {
+        //
+        // TODO: Handle load protocol if necessary.
+        //
+        return Status;
+    }
+
+    if (LoadedImage->DeviceHandle != DeviceHandle) {
+        LoadedImage->DeviceHandle = DeviceHandle;
+        LoadedImage->FilePath     = DuplicateDevicePath (RemainingDevicePath);
+    }
+
+    return EFI_SUCCESS;
+}
+
+
 EFI_STATUS
 EFIAPI
 UnsignedLoadImage(IN BOOLEAN            BootPolicy,
@@ -432,6 +471,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     VOID *DestinationBuffer;
     OC_LOADED_IMAGE_PROTOCOL *OcLoadedImage;
     EFI_LOADED_IMAGE_PROTOCOL *LoadedImage;
+    EFI_DEVICE_PATH *pFilePath = FilePath;
 
     DEBUG((D_ERROR, "UnsignedLoadImage starting up\n"));
 
@@ -482,7 +522,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     //
     // Reject RT drivers for the moment.
     //
-    if (ImageContext.Ctx.Pe.Subsystem == EFI_IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER) {
+    if (UefiImageGetSubsystem(&ImageContext) == EFI_IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER) {
         Print(L"OCB: PeCoff no support for RT drivers\n");
         return EFI_UNSUPPORTED;
     }
@@ -503,7 +543,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     //
     Status = AllocateAlignedPagesEx(
             AllocateAnyPages,
-            ImageContext.Ctx.Pe.Subsystem == EFI_IMAGE_SUBSYSTEM_EFI_APPLICATION
+            UefiImageGetSubsystem(&ImageContext) == EFI_IMAGE_SUBSYSTEM_EFI_APPLICATION
             ? EfiLoaderCode : EfiBootServicesCode,
             DestinationPages,
             DestinationAlignment,
@@ -544,7 +584,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
                                 UefiImageGetEntryPointAddress(&ImageContext));
     OcLoadedImage->ImageArea = DestinationArea;
     OcLoadedImage->PageCount = DestinationPages;
-    OcLoadedImage->Subsystem = ImageContext.Ctx.Pe.Subsystem;
+    OcLoadedImage->Subsystem = UefiImageGetSubsystem(&ImageContext);
 
     LoadedImage = &OcLoadedImage->LoadedImage;
 
@@ -556,7 +596,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     //
     // FIXME: Support RT drivers.
     //
-    if (ImageContext.Ctx.Pe.Subsystem == EFI_IMAGE_SUBSYSTEM_EFI_APPLICATION) {
+    if (UefiImageGetSubsystem(&ImageContext) == EFI_IMAGE_SUBSYSTEM_EFI_APPLICATION) {
         LoadedImage->ImageCodeType = EfiLoaderCode;
         LoadedImage->ImageDataType = EfiLoaderData;
     } else {
@@ -568,6 +608,18 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     // Install LoadedImage and the image's entry point.
     //
     *ImageHandle = NULL;
+
+    Status = gBS->LocateDevicePath (&gEfiSimpleFileSystemProtocolGuid, &pFilePath, &LoadedImage->DeviceHandle);
+    if (EFI_ERROR (Status)) {
+        Print(L"Cannot locate device path! (%r)\n", Status);
+        //
+        // TODO: Handle load protocol if necessary.
+        //
+        return Status;
+    }
+
+    LoadedImage->FilePath     = DuplicateDevicePath (pFilePath);
+
     Status = gBS->InstallMultipleProtocolInterfaces(
             ImageHandle,
             &gEfiLoadedImageProtocolGuid,
@@ -585,8 +637,17 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
 
     }
 
-    gBS->FreePages ((EFI_PHYSICAL_ADDRESS) (VOID *) (UINTN) OcLoadedImage->ImageArea, OcLoadedImage->PageCount);
-    FreePool (OcLoadedImage);
+    return EFI_SUCCESS;
+
+    Status = InternalUpdateLoadedImage(*ImageHandle, FilePath);
+    if (Status != EFI_SUCCESS)
+    {
+        Print(L"InternalUpdateLoadedImage failed, status %r\n", Status);
+        return Status;
+    }
+
+    //gBS->FreePages ((EFI_PHYSICAL_ADDRESS) (VOID *) (UINTN) OcLoadedImage->ImageArea, OcLoadedImage->PageCount);
+    //FreePool (OcLoadedImage);
     //
     // NOTE: Avoid EFI 1.10 extension of closing opened protocols.
     //
@@ -670,7 +731,7 @@ InternalDirectStartImage (
         Print(L"OCB: Starting image %p\n", ImageHandle);
         OcLoadedImage->Started = TRUE;
         OcLoadedImage->Status  = OcLoadedImage->EntryPoint (
-                LastImage,
+                gImageHandle,
                 OcLoadedImage->LoadedImage.SystemTable
         );
         //
