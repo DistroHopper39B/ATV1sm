@@ -21,8 +21,7 @@
 
 extern EFI_HANDLE           gImageHandle;
 
-extern mach_boot_args_t     *gBA;
-extern boolean_t            verbose;
+extern EFI_STATUS           PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable);
 extern noreturn void halt(void);
 
 typedef EFI_STATUS RETURN_STATUS;

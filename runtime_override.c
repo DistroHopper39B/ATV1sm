@@ -4,6 +4,9 @@
 #include <Library/PeCoffLib2.h>
 #include <Library/UefiImageLib.h>
 
+EFI_IMAGE_LOAD  OriginalLoadImage;
+EFI_IMAGE_START OriginalStartImage;
+
 ///
 /// The IA-32 architecture context buffer used by SetJump() and LongJump().
 ///
@@ -412,45 +415,6 @@ CloseLastFile:
 ///
 #define EFI_LOADED_IMAGE_INFORMATION_REVISION  EFI_LOADED_IMAGE_PROTOCOL_REVISION
 
-STATIC
-EFI_STATUS
-InternalUpdateLoadedImage (
-        IN EFI_HANDLE                ImageHandle,
-        IN EFI_DEVICE_PATH_PROTOCOL  *DevicePath
-)
-{
-    EFI_STATUS                 Status;
-    EFI_HANDLE                 DeviceHandle;
-    EFI_LOADED_IMAGE_PROTOCOL  *LoadedImage;
-    EFI_DEVICE_PATH_PROTOCOL   *RemainingDevicePath;
-
-    Status = gBS->HandleProtocol (
-            ImageHandle,
-            &gEfiLoadedImageProtocolGuid,
-            (VOID **)&LoadedImage
-    );
-    if (EFI_ERROR (Status)) {
-        return Status;
-    }
-
-    RemainingDevicePath = DevicePath;
-    Status              = gBS->LocateDevicePath (&gEfiSimpleFileSystemProtocolGuid, &RemainingDevicePath, &DeviceHandle);
-    if (EFI_ERROR (Status)) {
-        //
-        // TODO: Handle load protocol if necessary.
-        //
-        return Status;
-    }
-
-    if (LoadedImage->DeviceHandle != DeviceHandle) {
-        LoadedImage->DeviceHandle = DeviceHandle;
-        LoadedImage->FilePath     = DuplicateDevicePath (RemainingDevicePath);
-    }
-
-    return EFI_SUCCESS;
-}
-
-
 EFI_STATUS
 EFIAPI
 UnsignedLoadImage(IN BOOLEAN            BootPolicy,
@@ -508,7 +472,13 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
                                              ImageBuffer,
                                              (UINT32) ImageSize);
     if (ImageStatus != EFI_SUCCESS) {
-        Print(L"Initializing EFI image failed: %r\n", ImageStatus);
+        Print(L"Initializing EFI image failed: %r. Trying stock LoadImage.\n", ImageStatus);
+        return OriginalLoadImage(BootPolicy,
+                                 ParentImageHandle,
+                                 pFilePath,
+                                 SourceBuffer,
+                                 SourceSize,
+                                 ImageHandle);
     }
 
     // Check the architecture
@@ -637,20 +607,6 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
 
     }
 
-    return EFI_SUCCESS;
-
-    Status = InternalUpdateLoadedImage(*ImageHandle, FilePath);
-    if (Status != EFI_SUCCESS)
-    {
-        Print(L"InternalUpdateLoadedImage failed, status %r\n", Status);
-        return Status;
-    }
-
-    //gBS->FreePages ((EFI_PHYSICAL_ADDRESS) (VOID *) (UINTN) OcLoadedImage->ImageArea, OcLoadedImage->PageCount);
-    //FreePool (OcLoadedImage);
-    //
-    // NOTE: Avoid EFI 1.10 extension of closing opened protocols.
-    //
     return EFI_SUCCESS;
 }
 
@@ -800,8 +756,11 @@ UnsignedStartImage(IN EFI_HANDLE        ImageHandle,
             (VOID **)&OcLoadedImage
     );
     if (EFI_ERROR (Status)) {
-        // We didn't load this file.
-        return EFI_UNSUPPORTED;
+        // We didn't load this file. Try using the original StartImage.
+
+        return OriginalStartImage(ImageHandle,
+                                  ExitDataSize,
+                                  ExitData);
     }
 
     return InternalDirectStartImage (
@@ -811,5 +770,20 @@ UnsignedStartImage(IN EFI_HANDLE        ImageHandle,
             ExitData
     );
 
+}
+
+EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
+{
+    EFI_STATUS          Status = EFI_SUCCESS;
+    EFI_BOOT_SERVICES   *BootServices = SystemTable->BootServices;
+
+    // Preserve original LoadImage and StartImage in case we need them for some reason.
+    OriginalLoadImage   = BootServices->LoadImage;
+    OriginalStartImage  = BootServices->StartImage;
+
+    BootServices->LoadImage = UnsignedLoadImage;
+    BootServices->StartImage = UnsignedStartImage;
+
+    return Status;
 }
 

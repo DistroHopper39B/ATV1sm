@@ -19,9 +19,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95bdbaa-7a4e-433b-8704-660ec478853d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD" beforeDir="false" afterPath="$PROJECT_DIR$/ASD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pecoff.c" beforeDir="false" afterPath="$PROJECT_DIR$/pecoff.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baselibc_string.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/atvlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/atvlib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/runtime_override.c" beforeDir="false" afterPath="$PROJECT_DIR$/runtime_override.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +145,7 @@
       <updated>1768621000144</updated>
       <workItem from="1768621001421" duration="17523000" />
       <workItem from="1768675226524" duration="2223000" />
-      <workItem from="1768677456341" duration="34523000" />
+      <workItem from="1768677456341" duration="37594000" />
     </task>
     <servers />
   </component>

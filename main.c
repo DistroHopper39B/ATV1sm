@@ -24,26 +24,7 @@ UnsignedStartImage(IN EFI_HANDLE        ImageHandle,
 
 CHAR16 *EfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
 
-EFI_IMAGE_LOAD  OriginalLoadImage;
-EFI_IMAGE_START OriginalStartImage;
-
 EFI_HANDLE gImageHandle;
-
-STATIC
-EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
-{
-    EFI_STATUS          Status = EFI_SUCCESS;
-    EFI_BOOT_SERVICES   *BootServices = SystemTable->BootServices;
-
-    // Preserve original LoadImage and StartImage in case we need them for some reason.
-    OriginalLoadImage   = BootServices->LoadImage;
-    OriginalStartImage  = BootServices->StartImage;
-
-    BootServices->LoadImage = UnsignedLoadImage;
-    BootServices->StartImage = UnsignedStartImage;
-
-    return Status;
-}
 
 int main(int param_1, char **param_2)
 {
