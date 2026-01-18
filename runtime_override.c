@@ -541,7 +541,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     }
 
     OcLoadedImage->EntryPoint = (EFI_IMAGE_ENTRY_POINT) ((UINTN) DestinationBuffer +
-                                                         ImageContext.Ctx.Pe.AddressOfEntryPoint);
+                                UefiImageGetEntryPointAddress(&ImageContext));
     OcLoadedImage->ImageArea = DestinationArea;
     OcLoadedImage->PageCount = DestinationPages;
     OcLoadedImage->Subsystem = ImageContext.Ctx.Pe.Subsystem;
@@ -670,7 +670,7 @@ InternalDirectStartImage (
         Print(L"OCB: Starting image %p\n", ImageHandle);
         OcLoadedImage->Started = TRUE;
         OcLoadedImage->Status  = OcLoadedImage->EntryPoint (
-                ImageHandle,
+                LastImage,
                 OcLoadedImage->LoadedImage.SystemTable
         );
         //
