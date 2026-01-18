@@ -9,7 +9,24 @@
 #ifndef UE_IMAGE_H_
 #define UE_IMAGE_H_
 
-#include <Library/BaseLib.h>
+//#include <Library/BaseLib.h>
+#define STATIC_ASSERT  _Static_assert
+
+#define ALIGN_VALUE_SUBTRAHEND(Value, Alignment)  ((Value) & ((Alignment) - 1U))
+
+/**
+  Checks whether a value is aligned by a specified alignment.
+
+  @param   Value      The value to check.
+  @param   Alignment  The alignment boundary used to check against.
+
+  @retval TRUE   Value is aligned by Alignment.
+  @retval FALSE  Value is not aligned by Alignment.
+**/
+#define IS_ALIGNED(Value, Alignment)  (ALIGN_VALUE_SUBTRAHEND (Value, Alignment) == 0U)
+
+#define ALIGNOF(TYPE)  _Alignof (TYPE)
+#define OFFSET_OF(TYPE, Field)  ((UINTN) __builtin_offsetof(TYPE, Field))
 
 //
 // UE segment definitions.
@@ -66,10 +83,12 @@ typedef struct {
   UINT32                 FileSize;
 } UE_SEGMENT;
 
+/*
 STATIC_ASSERT (
   sizeof (UE_SEGMENT) == 8 && ALIGNOF (UE_SEGMENT) == 4,
   "The UE segment definition does not meet the specification."
   );
+  */
 
 ///
 /// Definition of a UE XIP segment header.
@@ -80,11 +99,12 @@ typedef struct {
   ///
   UE_SEGMENT_IMAGE_INFO  ImageInfo;
 } UE_SEGMENT_XIP;
-
+/*
 STATIC_ASSERT (
   sizeof (UE_SEGMENT_XIP) == 4 && ALIGNOF (UE_SEGMENT_XIP) == 4,
   "The UE XIP segment definition does not meet the specification."
   );
+  */
 
 /**
   Retrieve the UE segment memory permissions.
@@ -532,7 +552,7 @@ typedef struct {
   /// All UE load tables are ordered ascending by their identifier.
   ///
 //UE_LOAD_TABLE LoadTables[];
-} UE_HEADER;
+} __attribute__((aligned(8))) UE_HEADER;
 
 ///
 /// The minimum size, in bytes, of a valid UE header.

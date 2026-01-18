@@ -148,9 +148,7 @@ RETURN_STATUS
 UefiImageInitializeContextPreHash (
   OUT UEFI_IMAGE_LOADER_IMAGE_CONTEXT  *Context,
   IN  CONST VOID                       *FileBuffer,
-  IN  UINT32                           FileSize,
-  IN  UEFI_IMAGE_SOURCE                Source,
-  IN  UINT8                            ImageOrigin
+  IN  UINT32                           FileSize
   );
 
 RETURN_STATUS
@@ -179,9 +177,7 @@ RETURN_STATUS
 UefiImageInitializeContext (
   OUT UEFI_IMAGE_LOADER_IMAGE_CONTEXT  *Context,
   IN  CONST VOID                       *FileBuffer,
-  IN  UINT32                           FileSize,
-  IN  UEFI_IMAGE_SOURCE                Source,
-  IN  UINT8                            ImageOrigin
+  IN  UINT32                           FileSize
   );
 
 /**

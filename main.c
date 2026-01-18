@@ -7,6 +7,15 @@
 // Diagnostics core function
 unsigned int gCoreFunction;
 
+EFI_STATUS
+EFIAPI
+UnsignedLoadImage(IN BOOLEAN            BootPolicy,
+                  IN EFI_HANDLE         ParentImageHandle,
+                  IN EFI_DEVICE_PATH    *FilePath,
+                  IN VOID               *SourceBuffer   OPTIONAL,
+                  IN UINTN              SourceSize,
+                  OUT EFI_HANDLE        *ImageHandle);
+
 CHAR16 *EfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
 
 EFI_IMAGE_LOAD  OriginalLoadImage;
@@ -14,6 +23,7 @@ EFI_IMAGE_START OriginalStartImage;
 
 EFI_HANDLE gImageHandle;
 
+STATIC
 EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
 {
     EFI_STATUS          Status = EFI_SUCCESS;
@@ -22,6 +32,8 @@ EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
     // Preserve original LoadImage and StartImage in case we need them for some reason.
     OriginalLoadImage   = BootServices->LoadImage;
     OriginalStartImage  = BootServices->StartImage;
+
+    BootServices->LoadImage = UnsignedLoadImage;
 
     return Status;
 }
@@ -70,6 +82,8 @@ int main(int param_1, char **param_2)
     }
 
     Print(L"Created device path %D\n", DevicePath);
+
+    PatchLoadStartImage(SystemTable);
 
     Status = BS->LoadImage(FALSE, ImageHandle, DevicePath, NULL, 0, &LoadedImageHandle);
     if (EFI_ERROR(Status))

@@ -19,19 +19,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95bdbaa-7a4e-433b-8704-660ec478853d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/include/UefiImageFormat.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/pecoff.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opencore/FileProtocol.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pecoff.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runtime_override.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD" beforeDir="false" afterPath="$PROJECT_DIR$/ASD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gnu-efi/inc/efidebug.h" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/inc/efidebug.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/opencore.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/opencore.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cons.o" beforeDir="false" afterPath="$PROJECT_DIR$/cons.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gnu-efi/inc/efidef.h" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/inc/efidef.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gnu-efi/inc/ia32/efibind.h" beforeDir="false" afterPath="$PROJECT_DIR$/gnu-efi/inc/ia32/efibind.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/atvlib.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/atvlib.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/types.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opencore/ImageLoader.c" beforeDir="false" afterPath="$PROJECT_DIR$/opencore/ImageLoader.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opencore/fileload.c" beforeDir="false" afterPath="$PROJECT_DIR$/opencore/pecoffload.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/udk/Include/IndustryStandard/UeImage.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/udk/Include/Library/UeImageLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/udk/Include/Library/UefiImageLib.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/udk/Include/Library/UefiLib.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +153,7 @@
       <updated>1768621000144</updated>
       <workItem from="1768621001421" duration="17523000" />
       <workItem from="1768675226524" duration="2223000" />
-      <workItem from="1768677456341" duration="2528000" />
+      <workItem from="1768677456341" duration="22233000" />
     </task>
     <servers />
   </component>
