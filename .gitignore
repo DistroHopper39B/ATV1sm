@@ -3,3 +3,5 @@ ASD
 **/*.o
 *.o
 .idea/**
+
+!MacOSX10.4u.sdk/**
