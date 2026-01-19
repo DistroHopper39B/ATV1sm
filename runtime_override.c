@@ -4,8 +4,8 @@
 #include <Library/PeCoffLib2.h>
 #include <Library/UefiImageLib.h>
 
-EFI_IMAGE_LOAD  OriginalLoadImage;
-EFI_IMAGE_START OriginalStartImage;
+EFI_IMAGE_LOAD  OriginalLoadImage = NULL;
+EFI_IMAGE_START OriginalStartImage = NULL;
 
 ///
 /// The IA-32 architecture context buffer used by SetJump() and LongJump().
@@ -381,6 +381,12 @@ LoadImageFromDevicePath(IN EFI_DEVICE_PATH    **FullFilePath,
         return EFI_UNSUPPORTED;
     }
 
+    if (FileSize == 0)
+    {
+        // File doesn't exist.
+        return EFI_INVALID_PARAMETER;
+    }
+
     FileBuffer = AllocatePool(FileSize);
     if (FileBuffer == NULL)
     {
@@ -454,9 +460,11 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
 
     if (SourceBuffer == NULL) // Loading from file path.
     {
-        LoadImageFromDevicePath(&FilePath,
+        Status = LoadImageFromDevicePath(&FilePath,
                                 (VOID **) &ImageBuffer,
                                 &ImageSize);
+        if (Status != EFI_SUCCESS)
+            return Status;
     } else {
         ImageBuffer = SourceBuffer;
         ImageSize = SourceSize;
@@ -471,14 +479,21 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
     ImageStatus = UefiImageInitializeContext(&ImageContext,
                                              ImageBuffer,
                                              (UINT32) ImageSize);
-    if (ImageStatus != EFI_SUCCESS) {
-        Print(L"Initializing EFI image failed: %r. Trying stock LoadImage.\n", ImageStatus);
-        return OriginalLoadImage(BootPolicy,
-                                 ParentImageHandle,
-                                 pFilePath,
-                                 SourceBuffer,
-                                 SourceSize,
-                                 ImageHandle);
+    if (ImageStatus != EFI_SUCCESS)
+    {
+        if (ImageStatus == EFI_LOAD_ERROR)
+        // Not a PE file, this can happen with a fat binary. We can use the original LoadImage for those.
+        {
+            Print(L"Trying stock LoadImage.");
+            return OriginalLoadImage(BootPolicy,
+                                     ParentImageHandle,
+                                     pFilePath,
+                                     SourceBuffer,
+                                     SourceSize,
+                                     ImageHandle);
+        }
+        return EFI_LOAD_ERROR;
+
     }
 
     // Check the architecture
@@ -778,8 +793,15 @@ EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
     EFI_BOOT_SERVICES   *BootServices = SystemTable->BootServices;
 
     // Preserve original LoadImage and StartImage in case we need them for some reason.
-    OriginalLoadImage   = BootServices->LoadImage;
-    OriginalStartImage  = BootServices->StartImage;
+    if (!OriginalLoadImage)
+    {
+        OriginalLoadImage   = BootServices->LoadImage;
+    }
+
+    if (!OriginalStartImage)
+    {
+        OriginalStartImage  = BootServices->StartImage;
+    }
 
     BootServices->LoadImage = UnsignedLoadImage;
     BootServices->StartImage = UnsignedStartImage;

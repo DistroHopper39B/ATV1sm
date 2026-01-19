@@ -7,21 +7,6 @@
 // Diagnostics core function
 unsigned int gCoreFunction;
 
-EFI_STATUS
-EFIAPI
-UnsignedLoadImage(IN BOOLEAN            BootPolicy,
-                  IN EFI_HANDLE         ParentImageHandle,
-                  IN EFI_DEVICE_PATH    *FilePath,
-                  IN VOID               *SourceBuffer   OPTIONAL,
-                  IN UINTN              SourceSize,
-                  OUT EFI_HANDLE        *ImageHandle);
-
-EFI_STATUS
-EFIAPI
-UnsignedStartImage(IN EFI_HANDLE        ImageHandle,
-                   OUT UINTN            *ExitDataSize,
-                   OUT CHAR16           **ExitData);
-
 CHAR16 *EfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
 
 EFI_HANDLE gImageHandle;
@@ -46,7 +31,7 @@ int main(int param_1, char **param_2)
     // Initialize GNU-EFI variables
     InitializeLib(ImageHandle, SystemTable);
 
-    Print(L"Hello from BootServices!\n");
+    Print(L"Apple TV Boot Services Bypass started.\n");
 
     Status = BS->OpenProtocol(ImageHandle,
                               &LoadedImageProtocol,
@@ -60,16 +45,12 @@ int main(int param_1, char **param_2)
         Print(L"Failed to get LoadedImageProtocol! (%r)\n", Status);
     }
 
-    Print(L"Found image handle\n");
-
     DevicePath = FileDevicePath(LoadedImage->DeviceHandle, EfiFilePath);
     if (DevicePath == NULL)
     {
         Print(L"Failed to create device path for file!\n");
         goto hang;
     }
-
-    Print(L"Created device path %D\n", DevicePath);
 
     PatchLoadStartImage(SystemTable);
 
@@ -80,7 +61,7 @@ int main(int param_1, char **param_2)
         goto hang;
     }
 
-    Print(L"Loaded EFI file\n");
+    Print(L"Loaded EFI file %s\n", EfiFilePath);
 
     Status = BS->StartImage(LoadedImageHandle, NULL, NULL);
     if (EFI_ERROR(Status))
@@ -89,12 +70,10 @@ int main(int param_1, char **param_2)
         goto hang;
     }
 
-    Print(L"EFI file exited\n");
-
-    goto hang;
-
-    hang:
-    while (1);
+    Print(L"EFI file exited with status %r\n", Status);
 
     return 0;
+
+hang:
+    while (1);
 }

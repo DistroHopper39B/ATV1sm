@@ -691,7 +691,7 @@ PeCoffInitializeContext (
     //
     if (*(CONST UINT32 *) (CONST VOID *) ((CONST CHAR8 *) FileBuffer + Context->ExeHdrOffset) != EFI_IMAGE_NT_SIGNATURE) {
         Print(L"No Image Executable Header\n");
-        return RETURN_UNSUPPORTED;
+        return RETURN_LOAD_ERROR;
     }
     //
     // Verify the PE Image Header is well-formed.
