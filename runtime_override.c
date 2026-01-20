@@ -492,7 +492,7 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
                                      SourceSize,
                                      ImageHandle);
         }
-        return EFI_LOAD_ERROR;
+        return ImageStatus;
 
     }
 
