@@ -15,10 +15,24 @@ SDK := $(shell pwd)/MacOSX10.4u.sdk
 
 # Definitions for compiler
 CC := /usr/bin/clang
+LD := /opt/cross/bin/i386-apple-darwin8-ld
 
 INCLUDES := -Iinclude -Ignu-efi/inc #-Iudk/Include -Iudk/Include/Ia32
 
-CFLAGS := -Wall -Werror -fno-stack-protector -nostdlib -fno-builtin -O0 -std=gnu11 --target=$(TARGET) $(INCLUDES) -fshort-wchar -mno-red-zone -isysroot $(SDK) -DEFI_DEBUG
+CFLAGS := -Wall \
+			-Werror \
+			-fno-stack-protector \
+			-Wno-incompatible-library-redeclaration \
+			-nostdlib \
+			-fno-builtin \
+			-O0 \
+			-std=gnu11 \
+			--target=$(TARGET) \
+			$(INCLUDES) \
+			-fshort-wchar \
+			-mno-red-zone \
+			-isysroot $(SDK) \
+			-DEFI_DEBUG
 
 OBJS_GNUEFI_LIB := boxdraw.o \
 					cmdline.o \
@@ -60,7 +74,7 @@ OBJS := main.o \
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 ASD: $(OBJS)
-	$(CC) $(CFLAGS) -Wl,-bundle -Wl,-lSystem -e _main $^ -o $@
+	$(LD) -syslibroot $(SDK) -bundle -lSystem -e _main $^ -o $@
 all: ASD
 
 clean:
