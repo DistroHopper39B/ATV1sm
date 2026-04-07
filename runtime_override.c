@@ -706,7 +706,7 @@ InternalDirectStartImage (
         //
         // Invoke the manually loaded image entry point.
         //
-        Print(L"OCB: Starting image %p\n", ImageHandle);
+        //Print(L"OCB: Starting image %p\n", ImageHandle);
         OcLoadedImage->Started = TRUE;
         OcLoadedImage->Status  = OcLoadedImage->EntryPoint (
                 gImageHandle,
@@ -1028,9 +1028,9 @@ UnsignedExit (
     return OriginalExit(ImageHandle, ExitStatus, ExitDataSize, ExitData);
 }
 
-EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
+VOID PatchSystemTable(EFI_SYSTEM_TABLE *SystemTable)
 {
-    EFI_STATUS          Status = EFI_SUCCESS;
+    Print(L"Patching system table...");
     EFI_BOOT_SERVICES   *BootServices = SystemTable->BootServices;
 
     // Preserve original LoadImage and StartImage in case we need them for some reason.
@@ -1047,9 +1047,14 @@ EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
         OriginalExit            = BootServices->Exit;
 
     BootServices->LoadImage     = UnsignedLoadImage;
-    BootServices->StartImage    = UnsignedStartImage;
-    BootServices->UnloadImage   = UnsignedUnloadImage;
-    BootServices->Exit          = UnsignedExit;
+    Print(L" LoadImage ");
 
-    return Status;
+    BootServices->StartImage    = UnsignedStartImage;
+    Print(L" StartImage ");
+
+    BootServices->UnloadImage   = UnsignedUnloadImage;
+    Print(L" UnloadImage ");
+
+    BootServices->Exit          = UnsignedExit;
+    Print(L" Exit\n");
 }

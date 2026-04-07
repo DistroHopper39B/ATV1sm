@@ -18,15 +18,16 @@ CC := clang
 LD := /opt/cross/bin/i386-apple-darwin8-ld
 NASM := nasm
 
-INCLUDES := -Iinclude -Ignu-efi/inc #-Iudk/Include -Iudk/Include/Ia32
+INCLUDES := -Iinclude -Ignu-efi/inc
 
-CFLAGS := -Wall \
+CFLAGS := 	-Wall \
+			-Wextra \
 			-Werror \
 			-fno-stack-protector \
 			-Wno-incompatible-library-redeclaration \
 			-nostdlib \
 			-fno-builtin \
-			-O0 \
+			-O3 \
 			-std=gnu11 \
 			--target=$(TARGET) \
 			$(INCLUDES) \

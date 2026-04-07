@@ -1433,6 +1433,8 @@ UefiImageGetSymbolsPath (
         OUT UINT32                                 *SymbolsPathSize
 )
 {
+    // Unreferenced arguments
+    (VOID)Context; (VOID)SymbolsPath; (VOID)SymbolsPathSize;
     return EFI_NOT_FOUND;
 }
 
