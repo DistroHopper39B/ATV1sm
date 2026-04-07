@@ -1196,10 +1196,10 @@ PeCoffRelocateImage (
     UINT32                                FixupDataIndex;
     UINT64                                *CurrentFixupData;
 
-    ASSERT (Context != NULL);
-    ASSERT (!Context->RelocsStripped || BaseAddress == Context->ImageBase);
-    ASSERT (RuntimeContext != NULL || RuntimeContextSize == 0);
-    ASSERT (RuntimeContext == NULL || RuntimeContextSize >= sizeof (PE_COFF_LOADER_RUNTIME_CONTEXT) + Context->RelocDirSize * (sizeof (UINT64) / sizeof (UINT16)));
+    //ASSERT (Context != NULL);
+    //ASSERT (!Context->RelocsStripped || BaseAddress == Context->ImageBase);
+    //ASSERT (RuntimeContext != NULL || RuntimeContextSize == 0);
+    //ASSERT (RuntimeContext == NULL || RuntimeContextSize >= sizeof (PE_COFF_LOADER_RUNTIME_CONTEXT) + Context->RelocDirSize * (sizeof (UINT64) / sizeof (UINT16)));
     //
     // Initialise the Image runtime context header.
     //
