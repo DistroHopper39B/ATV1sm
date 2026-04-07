@@ -23,11 +23,13 @@ INCLUDES := -Iinclude -Ignu-efi/inc
 CFLAGS := 	-Wall \
 			-Wextra \
 			-Werror \
+			-pedantic \
+			-std=c11 \
 			-fno-stack-protector \
 			-Wno-incompatible-library-redeclaration \
 			-nostdlib \
 			-fno-builtin \
-			-O3 \
+			-O0 \
 			-std=gnu11 \
 			--target=$(TARGET) \
 			$(INCLUDES) \

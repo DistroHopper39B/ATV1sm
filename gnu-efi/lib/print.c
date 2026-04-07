@@ -280,7 +280,7 @@ STATIC
 INTN
 IsLocalPrint(void *func)
 {
-	if (func == _DbgOut || func == _SPrint || func == _PoolPrint)
+	if (func == (VOID *)_DbgOut || func == (VOID *)_SPrint || func == (VOID *)_PoolPrint)
 		return 1;
 	return 0;
 }
@@ -301,7 +301,7 @@ _DbgOut (
 //    }
 
     if (DbgOut) {
-	if (IsLocalPrint(DbgOut->OutputString))
+	if (IsLocalPrint((VOID *)DbgOut->OutputString))
 		DbgOut->OutputString(DbgOut, Buffer);
         else
 		uefi_call_wrapper(DbgOut->OutputString, 2, DbgOut, Buffer);
@@ -907,7 +907,7 @@ PFLUSH (
     )
 {
     *ps->Pos = 0;
-    if (IsLocalPrint(ps->Output))
+    if (IsLocalPrint((VOID *)ps->Output))
 	ps->Output(ps->Context, ps->Buffer);
     else
     	uefi_call_wrapper(ps->Output, 2, ps->Context, ps->Buffer);
