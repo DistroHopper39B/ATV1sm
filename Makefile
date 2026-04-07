@@ -14,8 +14,9 @@ TARGET = i386-apple-darwin8
 SDK := $(shell pwd)/MacOSX10.4u.sdk
 
 # Definitions for compiler
-CC := /usr/bin/clang
+CC := clang
 LD := /opt/cross/bin/i386-apple-darwin8-ld
+NASM := nasm
 
 INCLUDES := -Iinclude -Ignu-efi/inc #-Iudk/Include -Iudk/Include/Ia32
 
@@ -67,10 +68,11 @@ OBJS := main.o \
 		memory.o \
 		runtime_override.o \
 		pecoff.o \
+		longjmp.o \
 		$(addprefix gnu-efi/lib/, $(OBJS_GNUEFI_LIB))
 
-%.o: %.S
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.asm
+	$(NASM) -fmacho32 $< -o $@
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 ASD: $(OBJS)

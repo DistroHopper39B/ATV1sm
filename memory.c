@@ -135,3 +135,13 @@ AllocateAlignedPagesEx (
 
     return EFI_SUCCESS;
 }
+
+VOID
+EFIAPI
+FreeAlignedPages (
+    IN VOID     *Buffer,
+    IN UINTN    Pages
+    )
+{
+    gBS->FreePages((EFI_PHYSICAL_ADDRESS)(UINTN)Buffer, Pages);
+}

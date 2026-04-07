@@ -4,8 +4,10 @@
 #include <Library/PeCoffLib2.h>
 #include <Library/UefiImageLib.h>
 
-EFI_IMAGE_LOAD  OriginalLoadImage = NULL;
-EFI_IMAGE_START OriginalStartImage = NULL;
+EFI_IMAGE_LOAD      OriginalLoadImage = NULL;
+EFI_IMAGE_START     OriginalStartImage = NULL;
+EFI_IMAGE_UNLOAD    OriginalUnloadImage = NULL;
+EFI_EXIT            OriginalExit = NULL;
 
 ///
 /// The IA-32 architecture context buffer used by SetJump() and LongJump().
@@ -56,7 +58,12 @@ AllocateAlignedPagesEx (
         IN OUT EFI_PHYSICAL_ADDRESS  *Memory
 );
 
-#define FreeAlignedPages FreePages;
+VOID
+EFIAPI
+FreeAlignedPages (
+    IN VOID     *Buffer,
+    IN UINTN    Pages
+    );
 
 /*
 STATIC
@@ -787,6 +794,240 @@ UnsignedStartImage(IN EFI_HANDLE        ImageHandle,
 
 }
 
+
+/**
+  Unload image routine for OcImageLoaderLoad.
+
+  @param[in]  OcLoadedImage     Our loaded image instance.
+  @param[in]  ImageHandle       Handle that identifies the image to be unloaded.
+
+  @retval EFI_SUCCESS           The image has been unloaded.
+**/
+STATIC
+EFI_STATUS
+InternalDirectUnloadImage (
+  IN  OC_LOADED_IMAGE_PROTOCOL  *OcLoadedImage,
+  IN  EFI_HANDLE                ImageHandle
+  )
+{
+    EFI_STATUS                 Status;
+    EFI_LOADED_IMAGE_PROTOCOL  *LoadedImage;
+
+    LoadedImage = &OcLoadedImage->LoadedImage;
+    if (LoadedImage->Unload != NULL) {
+        Status = LoadedImage->Unload (ImageHandle);
+        if (EFI_ERROR (Status)) {
+            return Status;
+        }
+
+        //
+        // Do not allow to execute Unload multiple times.
+        //
+        LoadedImage->Unload = NULL;
+    } else if (OcLoadedImage->Started) {
+        return EFI_UNSUPPORTED;
+    }
+
+    Status = gBS->UninstallMultipleProtocolInterfaces (
+                    ImageHandle,
+                    &gEfiLoadedImageProtocolGuid,
+                    LoadedImage,
+                    &mOcLoadedImageProtocolGuid,
+                    OcLoadedImage,
+                    NULL
+                    );
+    if (EFI_ERROR (Status)) {
+        return Status;
+    }
+
+    FreeAlignedPages ((VOID *)(UINTN)OcLoadedImage->ImageArea, OcLoadedImage->PageCount);
+    FreePool (OcLoadedImage);
+    //
+    // NOTE: Avoid EFI 1.10 extension of closing opened protocols.
+    //
+    return EFI_SUCCESS;
+}
+
+STATIC
+EFI_STATUS
+EFIAPI
+UnsignedUnloadImage(
+    IN EFI_HANDLE ImageHandle
+    )
+{
+    EFI_STATUS                     Status;
+    OC_LOADED_IMAGE_PROTOCOL       *OcLoadedImage;
+    OC_IMAGE_LOADER_CAPS_PROTOCOL  *OcImageLoaderCaps;
+
+    //
+    // If we loaded the image, do the unloading manually.
+    //
+    Status = gBS->HandleProtocol (
+                    ImageHandle,
+                    &mOcLoadedImageProtocolGuid,
+                    (VOID **)&OcLoadedImage
+                    );
+    if (!EFI_ERROR (Status)) {
+        return InternalDirectUnloadImage (
+                 OcLoadedImage,
+                 ImageHandle
+                 );
+    }
+
+    //
+    // If we saved image caps during load, free them now.
+    //
+    Status = gBS->HandleProtocol (
+                    ImageHandle,
+                    &mOcImageLoaderCapsProtocolGuid,
+                    (VOID **)&OcImageLoaderCaps
+                    );
+    if (!EFI_ERROR (Status)) {
+        Status = gBS->UninstallMultipleProtocolInterfaces (
+                        ImageHandle,
+                        &mOcImageLoaderCapsProtocolGuid,
+                        OcImageLoaderCaps,
+                        NULL
+                        );
+        if (EFI_ERROR (Status)) {
+            return Status;
+        }
+
+        FreePool (OcImageLoaderCaps);
+    }
+
+    return OriginalUnloadImage (ImageHandle);
+}
+
+#define CpuDeadLoop() while (1) {}
+
+VOID InternalLongJump(VOID *, UINTN);
+
+STATIC
+VOID
+LongJump(
+    IN BASE_LIBRARY_JUMP_BUFFER *JumpBuffer,
+    IN UINTN                    Value
+    )
+{
+    InternalLongJump(JumpBuffer, Value);
+}
+
+STATIC
+EFI_STATUS
+InternalDirectExit (
+  IN  OC_LOADED_IMAGE_PROTOCOL  *OcLoadedImage,
+  IN  EFI_HANDLE                ImageHandle,
+  IN  EFI_STATUS                ExitStatus,
+  IN  UINTN                     ExitDataSize,
+  IN  CHAR16                    *ExitData     OPTIONAL
+  )
+{
+    EFI_TPL  OldTpl;
+
+    /*
+    DEBUG ((
+      DEBUG_VERBOSE,
+      "OCB: Exit %p %p (%d) - %r\n",
+      ImageHandle,
+      mCurrentImageHandle,
+      OcLoadedImage->Started,
+      ExitStatus
+      ));
+      */
+
+    //
+    // Prevent possible reentrance to this function for the same ImageHandle.
+    //
+    OldTpl = gBS->RaiseTPL (TPL_NOTIFY);
+
+    //
+    // If the image has not been started just free its resources.
+    // Should not happen normally.
+    //
+    if (!OcLoadedImage->Started) {
+        InternalDirectUnloadImage (OcLoadedImage, ImageHandle);
+        gBS->RestoreTPL (OldTpl);
+        return EFI_SUCCESS;
+    }
+
+    //
+    // If the image has been started, verify this image can exit.
+    //
+    /*
+    if (ImageHandle != mCurrentImageHandle) {
+        DEBUG ((DEBUG_LOAD|DEBUG_ERROR, "OCB: Image is not exitable image\n"));
+        gBS->RestoreTPL (OldTpl);
+        return EFI_INVALID_PARAMETER;
+    }
+    */
+
+    //
+    // Set the return status.
+    //
+    OcLoadedImage->Status = ExitStatus;
+
+    //
+    // If there's ExitData info provide it.
+    //
+    if (ExitData != NULL) {
+        OcLoadedImage->ExitDataSize = ExitDataSize;
+        OcLoadedImage->ExitData     = AllocatePool (OcLoadedImage->ExitDataSize);
+        if (OcLoadedImage->ExitData != NULL) {
+            CopyMem (OcLoadedImage->ExitData, ExitData, OcLoadedImage->ExitDataSize);
+        } else {
+            OcLoadedImage->ExitDataSize = 0;
+        }
+    }
+
+    //
+    // return to StartImage
+    //
+    gBS->RestoreTPL (OldTpl);
+    LongJump (OcLoadedImage->JumpContext, (UINTN)-1);
+
+    //
+    // If we return from LongJump, then it is an error
+    //
+    ASSERT (FALSE);
+    CpuDeadLoop ();
+    return EFI_ACCESS_DENIED;
+}
+
+STATIC
+EFI_STATUS
+EFIAPI
+UnsignedExit (
+    IN EFI_HANDLE   ImageHandle,
+    IN EFI_STATUS   ExitStatus,
+    IN UINTN        ExitDataSize,
+    IN CHAR16       *ExitData       OPTIONAL
+    )
+{
+    EFI_STATUS                  Status;
+    OC_LOADED_IMAGE_PROTOCOL    *OcLoadedImage;
+
+    Status = gBS->HandleProtocol (
+                  ImageHandle,
+                  &mOcLoadedImageProtocolGuid,
+                  (VOID **)&OcLoadedImage
+                  );
+
+    //DEBUG ((DEBUG_VERBOSE, "OCB: InternalEfiExit %p - %r / %r\n", ImageHandle, ExitStatus, Status));
+
+    if (!EFI_ERROR (Status)) {
+        return InternalDirectExit (
+                 OcLoadedImage,
+                 ImageHandle,
+                 ExitStatus,
+                 ExitDataSize,
+                 ExitData
+                 );
+    }
+
+    return OriginalExit(ImageHandle, ExitStatus, ExitDataSize, ExitData);
+}
+
 EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
 {
     EFI_STATUS          Status = EFI_SUCCESS;
@@ -794,18 +1035,21 @@ EFI_STATUS PatchLoadStartImage(EFI_SYSTEM_TABLE *SystemTable)
 
     // Preserve original LoadImage and StartImage in case we need them for some reason.
     if (!OriginalLoadImage)
-    {
-        OriginalLoadImage   = BootServices->LoadImage;
-    }
+        OriginalLoadImage       = BootServices->LoadImage;
 
     if (!OriginalStartImage)
-    {
-        OriginalStartImage  = BootServices->StartImage;
-    }
+        OriginalStartImage      = BootServices->StartImage;
 
-    BootServices->LoadImage = UnsignedLoadImage;
-    BootServices->StartImage = UnsignedStartImage;
+    if (!OriginalUnloadImage)
+        OriginalUnloadImage     = BootServices->UnloadImage;
+
+    if (!OriginalExit)
+        OriginalExit            = BootServices->Exit;
+
+    BootServices->LoadImage     = UnsignedLoadImage;
+    BootServices->StartImage    = UnsignedStartImage;
+    BootServices->UnloadImage   = UnsignedUnloadImage;
+    BootServices->Exit          = UnsignedExit;
 
     return Status;
 }
-
