@@ -4,14 +4,13 @@
 # SPDX-License-Identifier: MIT
 #
 
+.NOTPARALLEL: libSystem.dylib ASD
+
 # Check what OS we're running. Should work on Linux and macOS.
 OSTYPE = $(shell uname)
 
 # Target defs for Linux cross compiler.
 TARGET = i386-apple-darwin8
-
-# SDK
-SDK := $(shell pwd)/MacOSX10.4u.sdk
 
 # Definitions for compiler
 CC := clang
@@ -35,7 +34,6 @@ CFLAGS := 	-Wall \
 			$(INCLUDES) \
 			-fshort-wchar \
 			-mno-red-zone \
-			-isysroot $(SDK) \
 			-DEFI_DEBUG
 
 OBJS_GNUEFI_LIB := boxdraw.o \
@@ -72,14 +70,17 @@ OBJS := main.o \
 		runtime_override.o \
 		pecoff.o \
 		longjmp.o \
+		exit-asm.o \
 		$(addprefix gnu-efi/lib/, $(OBJS_GNUEFI_LIB))
+
 
 %.o: %.asm
 	$(NASM) -fmacho32 $< -o $@
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
 ASD: $(OBJS)
-	$(LD) -syslibroot $(SDK) -bundle -lSystem -e _main $^ -o $@
+	$(LD) -bundle -e _main $^ -o $@
 all: ASD
 
 clean:

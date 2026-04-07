@@ -9,7 +9,7 @@
  * All rights reserved.
  */
 
-#include <atvlib.h>
+#include <atv1sm.h>
 
 
 int isupper(int __c)

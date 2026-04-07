@@ -1,9 +1,14 @@
-/* Can I even distribute this */
-/* Copyright 2026 Sylas Hollander */
+/*
+ * ATV1sm - Apple TV EFI bypass
+ * SPDX-License-Identifier: MIT
+ */
 
-#include <atvlib.h>
+#include <atv1sm.h>
 
-// Diagnostics core function
+/*
+ * Diagnostics core function.
+ * This gets set to an address within TestSupport.efi.
+ */
 unsigned int gCoreFunction;
 
 // GOPShim path
@@ -50,9 +55,6 @@ int main(void)
     // Initialize GNU-EFI variables
     InitializeLib(ImageHandle, SystemTable);
 
-    gST->ConOut->SetAttribute(gST->ConOut, EFI_TEXT_ATTR(EFI_GREEN, EFI_BACKGROUND_BLACK));
-
-    Print(L"Boot services acquisition success.\n");
     Header();
 
     Print(L"ImageHandle = 0x%X, SystemTable = 0x%X\n", ImageHandle, SystemTable);

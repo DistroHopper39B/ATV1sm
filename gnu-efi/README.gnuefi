@@ -1,3 +1,5 @@
+MODIFIED for use with Clang/Mach-O toolchain for ATV1sm.
+
 	-------------------------------------------------
 	Building EFI Applications Using the GNU Toolchain
 	-------------------------------------------------

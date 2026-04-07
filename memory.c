@@ -1,4 +1,6 @@
-#include <atvlib.h>
+/* SPDX-License-Identifier: BSD-3-Clause */
+
+#include <atv1sm.h>
 
 /**
   Allocates one or more 4KB pages of a certain memory type.
