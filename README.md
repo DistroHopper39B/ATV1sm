@@ -1,5 +1,5 @@
 # ATV1sm
-Bypass for the original Apple TV's EFI, allowing it to boot any EFI-capable OS
+Bypass for the original Apple TV's EFI verification, allowing it to boot any EFI-capable OS
 
 ## Known Working OSes and Loaders
 * Windows 8, 8.1, 10 (virtually unusable on 256MB RAM, especially later versions and without an SSD)
@@ -53,7 +53,7 @@ In the end, your USB drive's file layout should look like this:
 EFI -> boot -> bootia32.efi (and other rEFInd files)
     -> tools -> shellia32.efi
        
-System -> Library -> CoreServices -> ASD.acm -> Contents -> MacOS -> ASD (replaced
+System -> Library -> CoreServices -> ASD.acm -> Contents -> MacOS -> ASD (replaced)
                                   -> Runtime_Files -> EFI -> Drivers -> GopShimDxe.efi (added)
 ```
 
