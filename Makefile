@@ -14,7 +14,12 @@ TARGET = i386-apple-darwin8
 
 # Definitions for compiler
 CC := clang
-LD := /opt/cross/bin/i386-apple-darwin8-ld
+ifeq ($(OSTYPE),Linux)
+LD := /opt/cross/bin/$(TARGET)-ld
+else
+LD := ld
+endif
+
 NASM := nasm
 
 INCLUDES := -Iinclude -Ignu-efi/inc
