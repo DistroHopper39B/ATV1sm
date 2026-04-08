@@ -13,11 +13,10 @@ OSTYPE = $(shell uname)
 TARGET = i386-apple-darwin8
 
 # Definitions for compiler
-CC := clang
 ifeq ($(OSTYPE),Linux)
-LD := /opt/cross/bin/$(TARGET)-ld
+CC := clang
 else
-LD := ld
+CC := /opt/homebrew/opt/llvm/bin/clang
 endif
 
 NASM := nasm
@@ -39,7 +38,7 @@ CFLAGS := 	-Wall \
 			$(INCLUDES) \
 			-fshort-wchar \
 			-mno-red-zone \
-			-DEFI_DEBUG
+			-DEFI_DEBUG \
 
 OBJS_GNUEFI_LIB := boxdraw.o \
 					cmdline.o \
@@ -85,7 +84,7 @@ OBJS := main.o \
 	$(CC) $(CFLAGS) -c $< -o $@
 
 ASD: $(OBJS)
-	$(LD) -bundle -e _main $^ -o $@
+	$(CC) $(CFLAGS) -Wl,-bundle -Wl,-e,_main $^ -o $@
 all: ASD
 
 clean:

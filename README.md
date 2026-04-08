@@ -105,16 +105,20 @@ to load with working graphics.
 UEFI FreeLoader) not working.
 * Fat binaries (like those used in Mac OS X) do not work and will fall back to the locked original bootloader for
 now.
+* Runtime failure when compiled with optimizations enabled or with Apple clang. I'd assume it has something to do with
+the fact that I'm targeting the wrong ABI and there is no valid reason on the face of the earth to ever do what I am
+doing. Or maybe it's the Apple gods personally smiting me down for sinning. I'm not sure.
 
 ## Libraries used
 * Portions of OpenCore's [OcBootManagementLib](https://github.com/acidanthera/OpenCorePkg/tree/master/Library/OcBootManagementLib)
 * [GNU-EFI](https://github.com/ncroxon/gnu-efi) (hard fork for Clang/Mach-O support, the build process is also
 completely different)
 * [Baselibc](https://github.com/PetteriAimonen/Baselibc) string/memory functions
+* [rEFInd](https://www.rodsbooks.com/refind/) bundled, along with an EFI shell from [rEFIt](https://refit.sourceforge.net/)
 
 ## Compiling (macOS)
 * Install the Xcode Command Line Tools
-* Install nasm
+* Install nasm and llvm from Homebrew
 * Clone this repo and `cd` into it
 * Type `make`
 

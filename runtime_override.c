@@ -364,6 +364,7 @@ LoadImageFromDevicePath(IN EFI_DEVICE_PATH    **FullFilePath,
 
         PathName = AlignedPathName;
 
+        // FIXME: THIS BREAKS WHEN OPTIMIZATION LEVEL != 0. WHY?? I HAVE NO CLUE.
         Status = LastFile->Open(LastFile,
                                 &NextFile,
                                 PathName,
