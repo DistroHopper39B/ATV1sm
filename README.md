@@ -40,7 +40,7 @@ Once you find this file, you must extract it. To do so using 7-Zip:
 ```
 
 ### Adding ATV1sm and GopShim to ASD
-* Unzip `ATV1sm_0.1.1.zip` from the Releases page
+* Unzip `ATV1sm_0.1.2.zip` from the Releases page
 * Copy `ASD` to `/System/Library/CoreServices/ASD.acm/Contents/MacOS/ASD`, replacing the existing file
 * Copy `GopShimDxe.efi` to `/System/Library/CoreServices/Runtime_Files/EFI/Drivers/GopShimDxe.efi`
 
@@ -58,7 +58,7 @@ Once you find this file, you must extract it. To do so using 7-Zip:
    - Partition -> Manage Flags
    - Check `atvrecv`
 4. Copy the `System` folder we extracted earlier to the root of this drive
-5. Copy the `EFI` folder from `ATV1sm_0.1.1` to the root of this drive (this contains stripped-down rEFInd)
+5. Copy the `EFI` folder from `ATV1sm_0.1.2.zip` to the root of this drive (this contains stripped-down rEFInd)
 
 In the end, your USB drive's file layout should look like this:
 ```
