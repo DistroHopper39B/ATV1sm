@@ -19,7 +19,7 @@ CHAR16 *BootEfiFilePath = L"\\EFI\\BOOT\\bootia32.efi";
 
 EFI_HANDLE gImageHandle;
 
-#define VERSION_STRING  "0.0.1"
+#define VERSION_STRING  "0.0.2"
 #define COPYRIGHT_YEAR  "2026"
 #define AUTHOR          "Sylas Hollander"
 #define AUTHOR_SITE     "<www.distrohopper39b.com>"
