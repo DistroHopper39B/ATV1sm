@@ -604,11 +604,11 @@ UnsignedLoadImage(IN BOOLEAN            BootPolicy,
 
     Status = gBS->LocateDevicePath (&gEfiSimpleFileSystemProtocolGuid, &pFilePath, &LoadedImage->DeviceHandle);
     if (EFI_ERROR (Status)) {
-        Print(L"Cannot locate device path! (%r)\n", Status);
+        Print(L"ATV1sm [OCB]: %r encountered when trying to locate device path. This is expected behavior with Linux/GRUB2 and probably isn't fatal.\n", Status);
         //
         // TODO: Handle load protocol if necessary.
         //
-        return Status;
+        //return Status;
     }
 
     LoadedImage->FilePath     = DuplicateDevicePath (pFilePath);
