@@ -146,6 +146,7 @@ make -j$(nproc)
 sudo make install
 ```
 * Clone this repo and `cd` into it
+* Type `export PATH=/opt/cross/bin:$PATH`
 * Type `make`
 
 ## Compiling (Windows)
