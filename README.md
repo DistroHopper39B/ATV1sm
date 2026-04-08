@@ -11,6 +11,8 @@ To solve it:
 
 A PRAM reset before ever running Linux via ATV1sm should also work.
 
+I've never had this issue with Windows or NetBSD but it's possible that those OSes have similar issues.
+
 ## Known Working OSes and Loaders
 * Windows 8, 8.1, 10 (virtually unusable on 256MB RAM, especially later versions and without an SSD)
 * NetBSD 10.1 (nouveau does not work, 32-bit EFI loader must be extracted from 64-bit NetBSD image for initial
