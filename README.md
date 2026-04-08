@@ -114,11 +114,12 @@ completely different)
 
 ## Compiling (macOS)
 * Install the Xcode Command Line Tools
+* Install nasm
 * Clone this repo and `cd` into it
 * Type `make`
 
 ## Compiling (Linux)
-* Install Clang, autoconf, automake, libtool, git
+* Install Clang, autoconf, automake, libtool, git, nasm
 * Compile version 986 of [cctools-port](https://github.com/tpoechtrager/cctools-port) (newer versions are more
 complicated to set up)
 ```shell
