@@ -1,6 +1,16 @@
 # ATV1sm
 Bypass for the original Apple TV's EFI verification, allowing it to boot any EFI-capable OS
 
+# WARNING!! WARNING!! WARNING!!
+Linux booted via ATV1sm is known for potentially "softbricking" Apple TVs. This is an issue that I have also experienced
+on all other Macs with 32-bit EFI, and seems to have something to do with the Apple TV outputting an invalid memory map.
+To solve it:
+- Remove the CMOS battery
+- Turn on the Apple TV and reset the PRAM
+- Reinstall the CMOS battery
+
+A PRAM reset before ever running Linux via ATV1sm should also work.
+
 ## Known Working OSes and Loaders
 * Windows 8, 8.1, 10 (virtually unusable on 256MB RAM, especially later versions and without an SSD)
 * NetBSD 10.1 (nouveau does not work, 32-bit EFI loader must be extracted from 64-bit NetBSD image for initial
